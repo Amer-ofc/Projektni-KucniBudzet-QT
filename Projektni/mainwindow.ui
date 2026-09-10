@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>904</width>
+    <height>818</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Main background */
+QMainWindow {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+        stop:0 #667eea, stop:1 #764ba2);
+    font-family: &quot;Segoe UI&quot;;
+}
+
+/* Login card */
+QFrame#loginFrame {
+    background-color: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 18px;
+}
+
+/* Title */
+QLabel#label {
+    color: white;
+    font-weight: 700;
+    font-size: 22px; /* Designer će kontrolirati realnu visinu */
+}
+
+/* Rows: icon QLabel + QLineEdit siting inside horizontal layout */
+
+/* QLineEdit: ima lijevi padding iznad (ostavi mjesto za ikonicu) */
+QLineEdit {
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 10px;
+    padding: 10px 12px 10px 12px; /* padding unutar polja */
+    color: white;
+    font-size: 14px;
+}
+
+/* Focus effect */
+QLineEdit:focus {
+    border: 1px solid #06b6d4;
+    background-color: rgba(255,255,255,0.09);
+}
+
+/* Push button */
+QPushButton#pushButton {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0,
+        stop:0 #6366f1, stop:1 #06b6d4);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 700;
+}
+
+
+QLabel[scaledContents=&quot;true&quot;] {
+}
+
+QMainWindow {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #667eea, stop:1 #764ba2);
+    border-image: url(:/slike/img.jpg) 0 0 0 0 stretch stretch; 
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="loginFrame">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>60</y>
+      <width>681</width>
+      <height>631</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>20</y>
+       <width>451</width>
+       <height>571</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>LOGIN</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>35</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="Slike.qrc">:/slike/user.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_2">
+          <property name="placeholderText">
+           <string>Username</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>35</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="Slike.qrc">:/slike/padlock.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="placeholderText">
+           <string>Password</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Spremi</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>904</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="Slike.qrc"/>
+ </resources>
+ <connections/>
+</ui>

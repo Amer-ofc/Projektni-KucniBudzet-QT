@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DashboardWindow</class>
+ <widget class="QMainWindow" name="DashboardWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Kućni Budžet - Dashboard</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QMainWindow {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #667eea, stop:1 #764ba2);
+    font-family: &quot;Segoe UI&quot;;
+}
+
+QWidget#sidebar {
+    background: rgba(0,0,0,0.12);
+    border-right: 1px solid rgba(255,255,255,0.06);
+}
+QLabel#appTitle {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 12px 16px;
+}
+QPushButton.sideBtn {
+    color: rgba(255,255,255,0.9);
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 14px;
+}
+QPushButton.sideBtn:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+QFrame.card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 10px;
+    padding: 14px;
+}
+QLabel.cardTitle { color: rgba(255,255,255,0.8); font-size:12px; }
+QLabel.cardValue { color: white; font-size:20px; font-weight:700; }
+
+QTableView {
+    background: rgba(255,255,255,0.03);
+    gridline-color: rgba(255,255,255,0.06);
+    color: white;
+    selection-background-color: rgba(99,102,241,0.3);
+    alternate-background-color: rgb(0, 0, 0);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+}
+QHeaderView::section {
+    background: rgba(255,255,255,0.04);
+    color: rgb(119, 73, 255);
+    padding: 6px;
+    border: none;
+}
+
+QPushButton#btnDodajPrihod, QPushButton#btnDodajRashod {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #6366f1, stop:1 #06b6d4);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: 700;
+}
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="sidebar" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>220</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>220</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label3">
+         <property name="text">
+          <string>Kućni Budžet</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnDashboard">
+         <property name="text">
+          <string>📊 Dashboard</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>sideBtn</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnGrafikon">
+         <property name="text">
+          <string>📈 Prikaz Grafikona</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>sideBtn</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnPostavke">
+         <property name="text">
+          <string>⚙️ Postavke</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>sideBtn</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="pageDashboard">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>20</number>
+        </property>
+        <property name="leftMargin">
+         <number>20</number>
+        </property>
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_cards">
+          <item>
+           <widget class="QFrame" name="FrameKartica">
+            <property name="class" stdset="0">
+             <string>card</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QLabel" name="Stanjeracuna2Label">
+               <property name="text">
+                <string>Trenutno Stanje</string>
+               </property>
+               <property name="class" stdset="0">
+                <string>cardTitle</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="StanjeRacunaLabel">
+               <property name="text">
+                <string>0.00 KM</string>
+               </property>
+               <property name="class" stdset="0">
+                <string>cardValue</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="PrihodiKartica">
+            <property name="class" stdset="0">
+             <string>card</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QLabel" name="PrihodiLabel">
+               <property name="text">
+                <string>Prihodi (Ova godina)</string>
+               </property>
+               <property name="class" stdset="0">
+                <string>cardTitle</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="Prihodi2Label">
+               <property name="text">
+                <string>0.00 KM</string>
+               </property>
+               <property name="class" stdset="0">
+                <string>cardValue</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="RashodiKartica">
+            <property name="class" stdset="0">
+             <string>card</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QLabel" name="Rashodi2Label">
+               <property name="text">
+                <string>Rashodi (Ova godina)</string>
+               </property>
+               <property name="class" stdset="0">
+                <string>cardTitle</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="RashodiLabel">
+               <property name="text">
+                <string>0.00 KM</string>
+               </property>
+               <property name="class" stdset="0">
+                <string>cardValue</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_filter">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="styleSheet">
+             <string notr="true">color: white;</string>
+            </property>
+            <property name="text">
+             <string>Prikaz za mjesec:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbMjesec"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelGodina">
+            <property name="styleSheet">
+             <string notr="true">color: white; margin-left: 10px;</string>
+            </property>
+            <property name="text">
+             <string>Godina:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbGodina"/>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDodajPrihod">
+            <property name="text">
+             <string>+ Dodaj Prihod</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDodajRashod">
+            <property name="text">
+             <string>- Dodaj Rashod</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnObrisi">
+            <property name="styleSheet">
+             <string notr="true">background: #ef4444; color: white; border-radius: 8px; padding: 8px 12px; font-weight: 700;</string>
+            </property>
+            <property name="text">
+             <string>🗑️ Obriši</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="tableViewTransakcije">
+          <property name="autoScroll">
+           <bool>false</bool>
+          </property>
+          <property name="horizontalScrollMode">
+           <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
+          </property>
+          <property name="showGrid">
+           <bool>false</bool>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageChart">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_chart_title">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>16</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: white;</string>
+          </property>
+          <property name="text">
+           <string>Prihodi i rashodi</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="chartContainer" native="true">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(255, 255, 255, 0.05); border-radius: 10px;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
